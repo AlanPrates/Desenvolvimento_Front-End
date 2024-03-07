@@ -1,0 +1,12 @@
+.controle-peso {
+  padding: 20px;
+}
+
+.grafico {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.item-grafico {
+  margin-bottom: 5px;
+}

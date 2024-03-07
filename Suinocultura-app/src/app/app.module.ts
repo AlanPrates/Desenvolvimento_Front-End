@@ -7,18 +7,22 @@ import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.componen
 import { ListaSuinosComponent } from './lista-suinos/lista-suinos.component';
 import { FilterSuinosPipe } from './lista-suinos/filter-suinos.pipe';
 import { FormsModule } from '@angular/forms';
+import { ControlePesoComponent } from './controle-peso/controle-peso.component';
+import { LineChartModule } from "@swimlane/ngx-charts";
+
 @NgModule({
   declarations: [
     AppComponent,
     CadastroSuinoComponent,
     ListaSuinosComponent,
-    FilterSuinosPipe
-
+    FilterSuinosPipe,
+    ControlePesoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    LineChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

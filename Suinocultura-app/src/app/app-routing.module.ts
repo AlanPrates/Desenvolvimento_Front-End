@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
 import { ListaSuinosComponent } from './lista-suinos/lista-suinos.component';
-
+import { ControlePesoComponent } from './controle-peso/controle-peso.component';
 
 const routes: Routes = [
   { path: 'cadastro-suino', component: CadastroSuinoComponent },
   { path: 'listagem-suinos', component: ListaSuinosComponent },
+  { path: 'controle-peso', component: ControlePesoComponent },
   { path: '', redirectTo: '/listagem-suinos', pathMatch: 'full' }
 ];
 

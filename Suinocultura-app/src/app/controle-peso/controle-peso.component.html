@@ -1,0 +1,8 @@
+<div class="controle-peso">
+  <h2>Controle de Peso do Animal</h2>
+  <div class="grafico">
+    <div *ngFor="let dado of dadosGrafico" class="item-grafico">
+      <p>{{ dado.data }} - Peso: {{ dado.peso }}</p>
+    </div>
+  </div>
+</div>
