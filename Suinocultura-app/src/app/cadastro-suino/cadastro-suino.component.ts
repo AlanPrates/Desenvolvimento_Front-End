@@ -7,7 +7,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./cadastro-suino.component.css']
 })
 export class CadastroSuinoComponent implements OnInit {
-  suinoForm!: FormGroup; // Definindo como definitivamente atribuída
+  suinoForm!: FormGroup;
+  suinos: any[] = [];
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -21,12 +22,24 @@ export class CadastroSuinoComponent implements OnInit {
       status: ['', Validators.required],
       sexo: ['', Validators.required]
     });
+
+    // Recuperar os dados salvos no localStorage ao inicializar o componente
+    const savedSuinos = localStorage.getItem('suinos');
+    if (savedSuinos) {
+      this.suinos = JSON.parse(savedSuinos);
+    }
   }
 
   onSubmit() {
     if (this.suinoForm.valid) {
-      // Lógica para enviar os dados do formulário para o backend
-      console.log(this.suinoForm.value);
+      // Adicionar o novo suíno à lista de suínos
+      this.suinos.push(this.suinoForm.value);
+
+      // Salvar a lista atualizada no localStorage
+      localStorage.setItem('suinos', JSON.stringify(this.suinos));
+
+      // Limpar o formulário após o envio
+      this.suinoForm.reset();
     } else {
       alert('Por favor, preencha todos os campos corretamente.');
     }

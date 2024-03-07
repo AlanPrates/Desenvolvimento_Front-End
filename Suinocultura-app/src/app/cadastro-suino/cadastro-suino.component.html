@@ -20,30 +20,30 @@
   </div>
 
   <!-- Formulário de Cadastro de Suíno -->
-  <form class="row g-3">
+  <form [formGroup]="suinoForm" (ngSubmit)="onSubmit()" class="row g-3">
     <div class="col-md-6">
       <label for="brincoAnimal" class="form-label">Brinco do animal:</label>
-      <input type="number" class="form-control" id="brincoAnimal" required>
+      <input type="number" class="form-control" id="brincoAnimal" formControlName="brincoAnimal" required>
     </div>
     <div class="col-md-6">
       <label for="brincoPai" class="form-label">Brinco do pai:</label>
-      <input type="number" class="form-control" id="brincoPai" required>
+      <input type="number" class="form-control" id="brincoPai" formControlName="brincoPai" required>
     </div>
     <div class="col-md-6">
       <label for="brincoMae" class="form-label">Brinco da mãe:</label>
-      <input type="number" class="form-control" id="brincoMae" required>
+      <input type="number" class="form-control" id="brincoMae" formControlName="brincoMae" required>
     </div>
     <div class="col-md-6">
       <label for="dataNascimento" class="form-label">Data de Nascimento:</label>
-      <input type="date" class="form-control" id="dataNascimento" required>
+      <input type="date" class="form-control" id="dataNascimento" formControlName="dataNascimento" required>
     </div>
     <div class="col-md-6">
       <label for="dataSaida" class="form-label">Data da saída:</label>
-      <input type="date" class="form-control" id="dataSaida" required>
+      <input type="date" class="form-control" id="dataSaida" formControlName="dataSaida" required>
     </div>
     <div class="col-md-6">
       <label for="status" class="form-label">Status:</label>
-      <select id="status" class="form-select" required>
+      <select id="status" class="form-select" formControlName="status" required>
         <option value="ativo">Ativo</option>
         <option value="vendido">Vendido</option>
         <option value="morto">Morto</option>
@@ -51,7 +51,7 @@
     </div>
     <div class="col-md-6">
       <label for="sexo" class="form-label">Sexo:</label>
-      <select id="sexo" class="form-select" required>
+      <select id="sexo" class="form-select" formControlName="sexo" required>
         <option value="M">Macho</option>
         <option value="F">Fêmea</option>
       </select>
