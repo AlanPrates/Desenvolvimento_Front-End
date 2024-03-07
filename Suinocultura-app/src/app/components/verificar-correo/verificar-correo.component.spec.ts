@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadastroSuinoComponent } from './cadastro-suino.component';
+import { VerificarCorreoComponent } from './verificar-correo.component';
 
-describe('CadastroSuinoComponent', () => {
-  let component: CadastroSuinoComponent;
-  let fixture: ComponentFixture<CadastroSuinoComponent>;
+describe('VerificarCorreoComponent', () => {
+  let component: VerificarCorreoComponent;
+  let fixture: ComponentFixture<VerificarCorreoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CadastroSuinoComponent ]
+      declarations: [ VerificarCorreoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CadastroSuinoComponent);
+    fixture = TestBed.createComponent(VerificarCorreoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

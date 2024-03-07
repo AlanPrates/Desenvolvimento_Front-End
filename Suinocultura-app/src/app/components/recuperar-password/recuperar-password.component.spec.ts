@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadastroSuinoComponent } from './cadastro-suino.component';
+import { RecuperarPasswordComponent } from './recuperar-password.component';
 
-describe('CadastroSuinoComponent', () => {
-  let component: CadastroSuinoComponent;
-  let fixture: ComponentFixture<CadastroSuinoComponent>;
+describe('RecuperarPasswordComponent', () => {
+  let component: RecuperarPasswordComponent;
+  let fixture: ComponentFixture<RecuperarPasswordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CadastroSuinoComponent ]
+      declarations: [ RecuperarPasswordComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CadastroSuinoComponent);
+    fixture = TestBed.createComponent(RecuperarPasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

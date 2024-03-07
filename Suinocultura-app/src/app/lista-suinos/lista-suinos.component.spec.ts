@@ -8,10 +8,12 @@ describe('ListaSuinosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ListaSuinosComponent]
+      declarations: [ ListaSuinosComponent ]
     })
     .compileComponents();
-    
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(ListaSuinosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

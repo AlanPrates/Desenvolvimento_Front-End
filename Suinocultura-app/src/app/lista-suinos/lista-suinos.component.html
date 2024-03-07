@@ -1,14 +1,31 @@
-<div>
+<div class="container">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+    </a>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a href="#" class="nav-link px-2 link-secondary">Início</a></li>
+      <li><a routerLink="/cadastro-suino" class="nav-link px-2 link-dark">Cadastro de Suínos</a></li>
+      <li><a routerLink="/listagem-suinos" class="nav-link px-2 link-dark">Listar Suínos</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+      <button type="button" class="btn btn-outline-primary me-2">Sair</button>
+    </div>
+  </header>
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">Bem-vindo!</h1>
+    <p class="fs-5 text-muted">example@example.com</p>
+  </div>
   <h2>Listagem de Suínos</h2>
 
-  <div>
-    <label for="filtroBrincoPai">Filtrar por brinco do pai:</label>
-    <input type="text" id="filtroBrincoPai" [(ngModel)]="filtroBrincoPai">
+  <div class="mb-3">
+    <label for="filtroBrincoPai" class="form-label">Filtrar por brinco do pai:</label>
+    <input type="text" class="form-control" id="filtroBrincoPai" [(ngModel)]="filtroBrincoPai">
   </div>
 
-  <!-- Outros filtros aqui -->
-
-  <table>
+  <table class="table">
     <thead>
     <tr>
       <th>Brinco do Animal</th>
@@ -33,8 +50,8 @@
       <td>{{ suino.sexo }}</td>
       <td>{{ calcularIdade(suino.dataNascimento) }}</td>
       <td>
-        <button (click)="editarSuino(suino)">Editar</button>
-        <button (click)="deletarSuino(suino)">Deletar</button>
+        <button class="btn btn-primary me-2" (click)="editarSuino(suino)">Editar</button>
+        <button class="btn btn-danger" (click)="deletarSuino(suino)">Deletar</button>
       </td>
     </tr>
     </tbody>

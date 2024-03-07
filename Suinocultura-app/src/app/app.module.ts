@@ -1,35 +1,53 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire/compat';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
-import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
+import { VerificarCorreoComponent } from './components/verificar-correo/verificar-correo.component';
+import { RecuperarPasswordComponent } from './components/recuperar-password/recuperar-password.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { environment } from 'src/environments/environment';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Importe FormsModule aqui
 import { ListaSuinosComponent } from './lista-suinos/lista-suinos.component';
 import { FilterSuinosPipe } from './lista-suinos/filter-suinos.pipe';
-import { FormsModule } from '@angular/forms';
-import { ControlePesoComponent } from './controle-peso/controle-peso.component';
-import { LineChartModule } from "@swimlane/ngx-charts";
-import { CadastroPesoComponent } from './cadastro-peso/cadastro-peso.component';
-import { EdicaoPesoComponent } from './edicao-peso/edicao-peso.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
+import {RouterModule} from "@angular/router";
 @NgModule({
   declarations: [
     AppComponent,
-    CadastroSuinoComponent,
+    LoginComponent,
+    DashboardComponent,
+    RegistrarUsuarioComponent,
+    VerificarCorreoComponent,
+    RecuperarPasswordComponent,
+    SpinnerComponent,
     ListaSuinosComponent,
     FilterSuinosPipe,
-    ControlePesoComponent,
-    CadastroPesoComponent,
-    EdicaoPesoComponent
+    CadastroSuinoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    LineChartModule,
     ReactiveFormsModule,
-    HttpClientModule
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    CommonModule,
+    FormsModule, // Importe o FormsModule aqui
+    CommonModule,
+    ReactiveFormsModule,
+  ],
+  exports: [
+    ListaSuinosComponent,
+    FilterSuinosPipe,
+    CadastroSuinoComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

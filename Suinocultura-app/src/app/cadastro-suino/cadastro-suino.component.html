@@ -1,38 +1,63 @@
-<form>
-  <div>
-    <label for="brincoAnimal">Brinco do animal:</label>
-    <input type="number" id="brincoAnimal" required>
+<div class="container">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+    </a>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a href="#" class="nav-link px-2 link-secondary">Início</a></li>
+      <li><a routerLink="/cadastro-suino" class="nav-link px-2 link-dark">Cadastro de Suínos</a></li>
+      <li><a routerLink="/listagem-suinos" class="nav-link px-2 link-dark">Listar Suínos</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+      <button type="button" class="btn btn-outline-primary me-2">Sair</button>
+    </div>
+  </header>
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">Bem-vindo!</h1>
+    <p class="fs-5 text-muted">example@example.com</p>
   </div>
-  <div>
-    <label for="brincoPai">Brinco do pai:</label>
-    <input type="number" id="brincoPai" required>
-  </div>
-  <div>
-    <label for="brincoMae">Brinco da mãe:</label>
-    <input type="number" id="brincoMae" required>
-  </div>
-  <div>
-    <label for="dataNascimento">Data de Nascimento:</label>
-    <input type="date" id="dataNascimento" required>
-  </div>
-  <div>
-    <label for="dataSaida">Data da saída:</label>
-    <input type="date" id="dataSaida" required>
-  </div>
-  <div>
-    <label for="status">Status:</label>
-    <select id="status" required>
-      <option value="ativo">Ativo</option>
-      <option value="vendido">Vendido</option>
-      <option value="morto">Morto</option>
-    </select>
-  </div>
-  <div>
-    <label for="sexo">Sexo:</label>
-    <select id="sexo" required>
-      <option value="M">Macho</option>
-      <option value="F">Fêmea</option>
-    </select>
-  </div>
-  <button type="submit">Cadastrar</button>
-</form>
+
+  <!-- Formulário de Cadastro de Suíno -->
+  <form class="row g-3">
+    <div class="col-md-6">
+      <label for="brincoAnimal" class="form-label">Brinco do animal:</label>
+      <input type="number" class="form-control" id="brincoAnimal" required>
+    </div>
+    <div class="col-md-6">
+      <label for="brincoPai" class="form-label">Brinco do pai:</label>
+      <input type="number" class="form-control" id="brincoPai" required>
+    </div>
+    <div class="col-md-6">
+      <label for="brincoMae" class="form-label">Brinco da mãe:</label>
+      <input type="number" class="form-control" id="brincoMae" required>
+    </div>
+    <div class="col-md-6">
+      <label for="dataNascimento" class="form-label">Data de Nascimento:</label>
+      <input type="date" class="form-control" id="dataNascimento" required>
+    </div>
+    <div class="col-md-6">
+      <label for="dataSaida" class="form-label">Data da saída:</label>
+      <input type="date" class="form-control" id="dataSaida" required>
+    </div>
+    <div class="col-md-6">
+      <label for="status" class="form-label">Status:</label>
+      <select id="status" class="form-select" required>
+        <option value="ativo">Ativo</option>
+        <option value="vendido">Vendido</option>
+        <option value="morto">Morto</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="sexo" class="form-label">Sexo:</label>
+      <select id="sexo" class="form-select" required>
+        <option value="M">Macho</option>
+        <option value="F">Fêmea</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </div>
+  </form>
+</div>
