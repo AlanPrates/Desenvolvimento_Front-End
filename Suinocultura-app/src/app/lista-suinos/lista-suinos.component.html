@@ -35,8 +35,6 @@
       <th>Data de Saída</th>
       <th>Status</th>
       <th>Sexo</th>
-      <th>Idade</th>
-      <th>Ações</th>
     </tr>
     </thead>
     <tbody>
@@ -50,7 +48,6 @@
       <td>{{ suino.sexo }}</td>
       <td>{{ calcularIdade(suino.dataNascimento) }}</td>
       <td>
-        <!-- Botões para editar e deletar -->
         <button class="btn btn-primary me-2" (click)="editarSuino(suino)">Editar</button>
         <button class="btn btn-danger" (click)="deletarSuino(suino)">Deletar</button>
       </td>

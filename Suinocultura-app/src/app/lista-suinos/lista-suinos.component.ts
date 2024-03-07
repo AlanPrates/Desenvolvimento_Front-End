@@ -28,6 +28,12 @@ export class ListaSuinosComponent implements OnInit {
   }
 
   deletarSuino(suino: Suino) {
-    // Lógica para deletar suíno
+    // Remove o suíno do array suinos
+    const index = this.suinos.indexOf(suino);
+    if (index !== -1) {
+      this.suinos.splice(index, 1);
+      // Atualiza os suínos no localStorage
+      localStorage.setItem('suinos', JSON.stringify(this.suinos));
+    }
   }
 }
