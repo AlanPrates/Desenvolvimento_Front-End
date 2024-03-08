@@ -7,6 +7,8 @@ import { RegistrarUsuarioComponent } from './components/registrar-usuario/regist
 import { VerificarCorreoComponent } from './components/verificar-correo/verificar-correo.component';
 import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
 import { ListaSuinosComponent } from './lista-suinos/lista-suinos.component';
+import { EditarSuinoComponent} from "./editar-suino/editar-suino.component";
+
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -16,6 +18,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'cadastro-suino', component: CadastroSuinoComponent },
   { path: 'listagem-suinos', component: ListaSuinosComponent },
+  { path: 'editar-suino', component: EditarSuinoComponent },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
 

@@ -1,4 +1,6 @@
+// suino.model.ts
 export interface Suino {
+  id: string;
   brincoAnimal: number;
   brincoPai: number;
   brincoMae: number;

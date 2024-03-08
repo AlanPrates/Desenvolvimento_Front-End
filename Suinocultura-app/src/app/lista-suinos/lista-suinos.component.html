@@ -11,12 +11,13 @@
     </ul>
 
     <div class="col-md-3 text-end">
-      <button type="button" class="btn btn-outline-primary me-2">Sair</button>
+      <button type="button" class="btn btn-outline-primary me-2" (click)="logOut()">Sair</button>
     </div>
   </header>
   <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-    <h1 class="display-4 fw-normal">Bem-vindo!</h1>
-    <p class="fs-5 text-muted">example@example.com</p>
+    <div *ngIf="userData">
+      <h2>Bem-vindo, {{ userData.displayName }}</h2>
+      <p>Email: {{ userData.email }}</p>
   </div>
   <h2>Listagem de Suínos</h2>
 
@@ -35,6 +36,7 @@
       <th>Data de Saída</th>
       <th>Status</th>
       <th>Sexo</th>
+      <th>Ações</th>
     </tr>
     </thead>
     <tbody>
@@ -46,7 +48,6 @@
       <td>{{ suino.dataSaida | date }}</td>
       <td>{{ suino.status }}</td>
       <td>{{ suino.sexo }}</td>
-      <td>{{ calcularIdade(suino.dataNascimento) }}</td>
       <td>
         <button class="btn btn-primary me-2" (click)="editarSuino(suino)">Editar</button>
         <button class="btn btn-danger" (click)="deletarSuino(suino)">Deletar</button>
@@ -54,4 +55,49 @@
     </tr>
     </tbody>
   </table>
+
+  <!-- Formulário de Edição -->
+  <div *ngIf="suinoSelecionado">
+    <h2>Editar Suíno</h2>
+    <form>
+      <div class="mb-3">
+        <label for="brincoAnimalEdit" class="form-label">Brinco do animal:</label>
+        <input type="number" class="form-control" id="brincoAnimalEdit" name="brincoAnimalEdit" [(ngModel)]="suinoSelecionado.brincoAnimal">
+      </div>
+      <div class="mb-3">
+        <label for="brincoPaiEdit" class="form-label">Brinco do pai:</label>
+        <input type="number" class="form-control" id="brincoPaiEdit" name="brincoPaiEdit" [(ngModel)]="suinoSelecionado.brincoPai">
+      </div>
+      <div class="mb-3">
+        <label for="brincoMaeEdit" class="form-label">Brinco da mãe:</label>
+        <input type="number" class="form-control" id="brincoMaeEdit" name="brincoMaeEdit" [(ngModel)]="suinoSelecionado.brincoMae">
+      </div>
+      <div class="mb-3">
+        <label for="dataNascimentoEdit" class="form-label">Data de Nascimento:</label>
+        <input type="date" class="form-control" id="dataNascimentoEdit" name="dataNascimentoEdit" [(ngModel)]="suinoSelecionado.dataNascimento">
+      </div>
+      <div class="mb-3">
+        <label for="dataSaidaEdit" class="form-label">Data da saída:</label>
+        <input type="date" class="form-control" id="dataSaidaEdit" name="dataSaidaEdit" [(ngModel)]="suinoSelecionado.dataSaida">
+      </div>
+      <div class="mb-3">
+        <label for="statusEdit" class="form-label">Status:</label>
+        <select id="statusEdit" class="form-select" name="statusEdit" [(ngModel)]="suinoSelecionado.status">
+          <option value="ativo">Ativo</option>
+          <option value="vendido">Vendido</option>
+          <option value="morto">Morto</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="sexoEdit" class="form-label">Sexo:</label>
+        <select id="sexoEdit" class="form-select" name="sexoEdit" [(ngModel)]="suinoSelecionado.sexo">
+          <option value="M">Macho</option>
+          <option value="F">Fêmea</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="salvarEdicao()">Salvar</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelarEdicao()">Cancelar</button>
+    </form>
+  </div>
+</div>
 </div>

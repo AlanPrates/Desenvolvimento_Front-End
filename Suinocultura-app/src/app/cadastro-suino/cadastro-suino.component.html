@@ -11,13 +11,14 @@
     </ul>
 
     <div class="col-md-3 text-end">
-      <button type="button" class="btn btn-outline-primary me-2">Sair</button>
+      <button type="button" class="btn btn-outline-primary me-2" (click)="logOut()">Sair</button>
     </div>
   </header>
   <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-    <h1 class="display-4 fw-normal">Bem-vindo!</h1>
-    <p class="fs-5 text-muted">example@example.com</p>
-  </div>
+    <div *ngIf="userData">
+      <h2>Bem-vindo, {{ userData.displayName }}</h2>
+      <p>Email: {{ userData.email }}</p>
+    </div>
 
   <!-- Formulário de Cadastro de Suíno -->
   <form [formGroup]="suinoForm" (ngSubmit)="onSubmit()" class="row g-3">
@@ -60,4 +61,5 @@
       <button type="submit" class="btn btn-primary">Cadastrar</button>
     </div>
   </form>
+</div>
 </div>
