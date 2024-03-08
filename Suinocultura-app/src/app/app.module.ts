@@ -20,6 +20,8 @@ import { FilterSuinosPipe } from './lista-suinos/filter-suinos.pipe';
 import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
 import {RouterModule} from "@angular/router";
 import { EditarSuinoComponent } from './editar-suino/editar-suino.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
