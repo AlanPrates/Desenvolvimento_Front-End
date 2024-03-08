@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-suinos',
@@ -14,21 +15,23 @@ export class ListaSuinosComponent implements OnInit {
   suinoSelecionado: any = null;
   filtroBrincoPai: string = '';
   userData: any;
+  pesoForm!: FormGroup;
+  isEditFormVisible: boolean = false;
 
   constructor(
     private db: AngularFireDatabase,
+    private formBuilder: FormBuilder,
     private afAuth: AngularFireAuth,
-    private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        this.userData = user;
-      } else {
-        this.router.navigate(['/login']);
-      }
+    // Inicializando o FormGroup para o formulário de cadastro de peso
+    this.pesoForm = this.formBuilder.group({
+      brincoAnimal: ['', Validators.required],
+      dataPesagem: ['', Validators.required],
+      pesoKg: ['', [Validators.required, Validators.pattern('^[0-9]*$')]]
     });
 
     const suinosRef = this.db.list('suinos');
@@ -39,8 +42,46 @@ export class ListaSuinosComponent implements OnInit {
     });
   }
 
+// No seu componente ou serviço onde você está usando o tipo Peso
+  salvarPeso() {
+    if (this.pesoForm.valid) {
+      const { brincoAnimal, dataPesagem, pesoKg } = this.pesoForm.value;
+
+      // Encontrar o suíno correspondente pelo brincoAnimal
+      const suino = this.suinos.find((s: any) => s.brincoAnimal === brincoAnimal);
+
+      if (suino) {
+        // Se o suíno existir, atualizar os dados de peso
+        if (!suino.pesos) {
+          suino.pesos = [];
+        }
+        // Adicionar os dados de peso ao suíno
+        suino.pesos.push({ dataPesagem, pesoKg });
+
+        // Atualizar o suíno no Firebase Database
+        const suinoRef = this.db.object(`suinos/${suino.id}`);
+        suinoRef.update(suino)
+          .then(() => {
+            this.pesoForm.reset();
+            this.toastr.success('Peso cadastrado com sucesso!', 'Sucesso');
+          })
+          .catch(error => {
+            console.error('Erro ao salvar peso:', error);
+            this.toastr.error('Erro ao cadastrar peso. Por favor, tente novamente.', 'Erro');
+          });
+      } else {
+        this.toastr.error('Suíno não encontrado.', 'Erro');
+      }
+    } else {
+      this.toastr.error('Por favor, preencha todos os campos corretamente.', 'Erro');
+    }
+  }
+
+
+
   editarSuino(suino: any) {
     this.suinoSelecionado = { ...suino };
+    this.isEditFormVisible = true; // Mostrar o formulário de edição
   }
 
   salvarEdicao() {
@@ -56,8 +97,8 @@ export class ListaSuinosComponent implements OnInit {
       });
   }
 
-  cancelarEdicao() {
-    this.suinoSelecionado = null;
+  voltarListaSuinos() {
+    this.suinoSelecionado = null; // Supondo que isso controle a visibilidade do formulário de edição
   }
 
   deletarSuino(suino: any) {

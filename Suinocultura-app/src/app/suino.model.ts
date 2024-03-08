@@ -8,4 +8,10 @@ export interface Suino {
   dataSaida: Date;
   status: string;
   sexo: string;
+  pesos: Peso[]; // Lista de pesos associada ao suíno
+}
+
+export interface Peso {
+  dataPesagem: Date;
+  pesoKg: number;
 }

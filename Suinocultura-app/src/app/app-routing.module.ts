@@ -8,6 +8,7 @@ import { VerificarCorreoComponent } from './components/verificar-correo/verifica
 import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
 import { ListaSuinosComponent } from './lista-suinos/lista-suinos.component';
 import { EditarSuinoComponent} from "./editar-suino/editar-suino.component";
+import { CadastroPesoComponent} from "./cadastro-peso/cadastro-peso.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'cadastro-suino', component: CadastroSuinoComponent },
   { path: 'listagem-suinos', component: ListaSuinosComponent },
   { path: 'editar-suino', component: EditarSuinoComponent },
+  { path: 'cadastro-peso', component: CadastroPesoComponent },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
 
