@@ -1,8 +1,11 @@
 Gerenciamento de Suínos
 Desenvolvedores:
 
+
     Alan Prates dos Santos
     Marcelo da Silva Cruz
+    Danilo Silveira da Gloria
+    Paulo Pereira Marques
 
 Descrição:
 
