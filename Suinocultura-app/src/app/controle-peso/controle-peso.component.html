@@ -16,7 +16,24 @@
     </div>
   </header>
   <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-    <h1 class="display-4 fw-normal">Bem-vindo!</h1>
-    <p class="fs-5 text-muted">{{ dataUser?.email }}</p>
+    <div *ngIf="userName">
+      <h2>Bem-vindo, {{ userName }}</h2>
+    </div>
+    <h2>Controle de Peso</h2>
+    <p class="chart-message">Passe o mouse sobre as barras para ver detalhes</p>
+    <div class="d-flex justify-content-center">
+      <div class="chart">
+        <div class="bar" *ngFor="let suino of suinosData">
+          <div class="bar-label">{{ suino.brincoAnimal }} - Brinco Animal</div>
+          <div class="bar-graph">
+            <div class="bar-fill" [style.width.%]="(getUltimoPeso(suino) / maxWeight) * 100">
+              <div class="bar-text">
+                Última Data de Pesagem: {{ getUltimaDataPesagem(suino) | date }} | Último Peso: {{ getUltimoPeso(suino) }} Kg
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

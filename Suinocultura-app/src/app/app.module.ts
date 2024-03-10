@@ -21,7 +21,7 @@ import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.componen
 import {RouterModule} from "@angular/router";
 import { EditarSuinoComponent } from './editar-suino/editar-suino.component';
 import { CadastroPesoComponent } from './cadastro-peso/cadastro-peso.component';
-
+import { ControlePesoComponent} from "./controle-peso/controle-peso.component";
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { CadastroPesoComponent } from './cadastro-peso/cadastro-peso.component';
     FilterSuinosPipe,
     CadastroSuinoComponent,
     EditarSuinoComponent,
-    CadastroPesoComponent
+    CadastroPesoComponent,
+    ControlePesoComponent
   ],
   imports: [
     BrowserModule,
@@ -48,12 +49,14 @@ import { CadastroPesoComponent } from './cadastro-peso/cadastro-peso.component';
     CommonModule,
     FormsModule, // Importe o FormsModule aqui
     CommonModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
+
   ],
   exports: [
     ListaSuinosComponent,
     FilterSuinosPipe,
-    CadastroSuinoComponent
+    CadastroSuinoComponent,
+    ControlePesoComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
