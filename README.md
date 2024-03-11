@@ -3,8 +3,8 @@ Desenvolvedores:
 
 
     Alan Prates dos Santos
-    Marcelo da Silva Cruz
     Danilo Silveira da Gloria
+    Marcelo da Silva Cruz
     Paulo Pereira Marques
 
 Descrição:
