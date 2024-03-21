@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-sessao',
@@ -18,12 +20,29 @@ export class CadastroSessaoComponent implements OnInit {
   cadastroSucesso: boolean = false;
   itensPorPagina: number = 4;
   paginaAtual: number = 1;
+  userName: string = '';
 
-  constructor(private db: AngularFireDatabase) {}
+  constructor(
+    private db: AngularFireDatabase,
+    private afAuth: AngularFireAuth,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.carregarSessoesCadastradas();
     this.carregarBrincosDisponiveis();
+    this.getDisplayName();
+
+    // Verifica se o usuário está autenticado
+    this.afAuth.currentUser.then(user => {
+      if (!user || !user.emailVerified) {
+        // Redireciona para a página de login se o usuário não estiver autenticado ou o e-mail não estiver verificado
+        this.router.navigate(['/login']);
+      }
+    }).catch(error => {
+      console.error('Erro ao verificar autenticação do usuário:', error);
+      // Manipular erros de autenticação, se necessário
+    });
   }
 
   carregarBrincosDisponiveis(): void {
@@ -98,5 +117,19 @@ export class CadastroSessaoComponent implements OnInit {
     const inicio = (this.paginaAtual - 1) * this.itensPorPagina;
     const fim = inicio + this.itensPorPagina;
     return this.sessoesCadastradas.slice(inicio, fim);
+  }
+
+  getDisplayName(): void {
+    this.afAuth.currentUser.then(user => {
+      if (user) {
+        this.userName = user.displayName || user.email || 'Usuário';
+      }
+    });
+  }
+
+  logOut(): void {
+    this.afAuth.signOut().then(() => {
+      this.router.navigate(['/login']);
+    });
   }
 }
