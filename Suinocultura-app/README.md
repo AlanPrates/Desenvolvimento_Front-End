@@ -1,15 +1,42 @@
-# LoginFirebase
+Gerenciamento de Suínos
+Desenvolvedores:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
+    Alan Prates dos Santos
+    Marcelo da Silva Cruz
+    Danilo Silveira da Gloria
+    Paulo Pereira Marques
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Build
+Descrição:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Este projeto foi desenvolvido por Alan Prates dos Santos e Marcelo da Silva Cruz para gerenciamento de suínos. Ele permite o cadastro, edição, exclusão e monitoramento do peso dos animais ao longo do tempo.
+Funcionalidades Implementadas:
 
-## Further help
+    Cadastro detalhado de suínos.
+    Edição e exclusão de suínos.
+    Registro e monitoramento do peso dos animais.
+    Controle de acesso com autenticação de usuários.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Tecnologias Utilizadas:
+
+    Angular para o frontend.
+    Firebase para o backend e autenticação.
+    Banco de dados NoSQL para armazenamento.
+    Toastr para notificações.
+
+Instruções de Execução:
+
+    Clone o repositório.
+    Certifique-se de ter o Node.js e o Angular CLI instalados.
+    Instale as dependências com npm install.
+    Configure as credenciais do Firebase.
+    Inicie o servidor com ng serve.
+    Acesse a aplicação em http://localhost:4200.
+
+Contribuições:
+
+Contribuições são bem-vindas! Sinta-se à vontade para enviar pull requests ou relatar problemas.
+Licença:
+
+Este projeto está licenciado sob a MIT License

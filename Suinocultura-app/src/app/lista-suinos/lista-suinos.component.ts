@@ -17,6 +17,7 @@ export class ListaSuinosComponent implements OnInit {
   userData: any;
   pesoForm!: FormGroup;
   isEditFormVisible: boolean = false;
+  userEmail: string = '';
 
   constructor(
     private db: AngularFireDatabase,
@@ -34,6 +35,17 @@ export class ListaSuinosComponent implements OnInit {
       pesoKg: ['', [Validators.required, Validators.pattern('^[0-9]*$')]]
     });
 
+    // Obtendo informações do usuário logado
+    this.afAuth.currentUser.then(user => {
+      if (user && user.emailVerified) {
+        this.userData = user;
+        this.userEmail = user?.email ?? '';// Atribui o email do usuário logado
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
+
+    // Carregando os suínos do banco de dados
     const suinosRef = this.db.list('suinos');
     suinosRef.snapshotChanges().subscribe((suinos: any[]) => {
       this.suinos = suinos.map((suino: any) => {
@@ -42,7 +54,7 @@ export class ListaSuinosComponent implements OnInit {
     });
   }
 
-// No seu componente ou serviço onde você está usando o tipo Peso
+  // Função para salvar o peso do animal e adicionar ao suíno
   salvarPeso() {
     if (this.pesoForm.valid) {
       const { brincoAnimal, dataPesagem, pesoKg } = this.pesoForm.value;
@@ -77,13 +89,13 @@ export class ListaSuinosComponent implements OnInit {
     }
   }
 
-
-
+  // Função para editar suíno
   editarSuino(suino: any) {
     this.suinoSelecionado = { ...suino };
     this.isEditFormVisible = true; // Mostrar o formulário de edição
   }
 
+  // Função para salvar edição do suíno
   salvarEdicao() {
     const suinoRef = this.db.object(`suinos/${this.suinoSelecionado.id}`);
     suinoRef.update(this.suinoSelecionado)
@@ -97,10 +109,12 @@ export class ListaSuinosComponent implements OnInit {
       });
   }
 
+  // Função para voltar à lista de suínos
   voltarListaSuinos() {
     this.suinoSelecionado = null; // Supondo que isso controle a visibilidade do formulário de edição
   }
 
+  // Função para deletar suíno
   deletarSuino(suino: any) {
     if (confirm('Tem certeza de que deseja excluir este suíno?')) {
       const suinoRef = this.db.object(`suinos/${suino.id}`);
@@ -115,6 +129,7 @@ export class ListaSuinosComponent implements OnInit {
     }
   }
 
+  // Função para fazer logout
   logOut() {
     this.afAuth.signOut().then(() => this.router.navigate(['/login']));
   }
