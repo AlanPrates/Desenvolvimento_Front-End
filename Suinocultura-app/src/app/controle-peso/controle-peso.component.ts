@@ -21,6 +21,17 @@ export class ControlePesoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // Verifica se o usuário está autenticado
+    this.afAuth.currentUser.then(user => {
+      if (!user || !user.emailVerified) {
+        // Redireciona para a página de login se o usuário não estiver autenticado ou o e-mail não estiver verificado
+        this.router.navigate(['/login']);
+      }
+    }).catch(error => {
+      console.error('Erro ao verificar autenticação do usuário:', error);
+      // Manipular erros de autenticação, se necessário
+    });
+
     this.afAuth.currentUser.then(user => {
       if (user) {
         this.userName = user.displayName || user.email || 'Usuário';
