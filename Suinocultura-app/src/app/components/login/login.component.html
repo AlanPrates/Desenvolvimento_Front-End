@@ -21,11 +21,13 @@
                 </span>
       </div>
       <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary btn-lg" [disabled]="loginUsuario.invalid" >Entrar</button>
+        <button type="submit" class="btn bg-info" [disabled]="loginUsuario.invalid" style="background-color: #17a2b8;">Entrar</button>
       </div>
       <p class="mt-3">Não tem uma conta? <a routerLink="/registrar-usuario">Registrar</a></p>
       <a class="mt-3" routerLink="/recuperar-password">Recuperar Senha</a>
     </form>
   </div>
+
+
   <app-spinner *ngIf="loading"></app-spinner>
 </div>

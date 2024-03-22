@@ -26,47 +26,53 @@
       <input type="text" class="form-control" id="filtroBrincoPai" [(ngModel)]="filtroBrincoPai">
     </div>
 
-    <table class="table">
-      <thead>
-      <tr>
-        <th>Brinco do Animal</th>
-        <th>Brinco do Pai</th>
-        <th>Brinco da Mãe</th>
-        <th>Data de Nascimento</th>
-        <th>Data de Saída</th>
-        <th>Status</th>
-        <th>Sexo</th>
-        <th>Peso (Kg)</th>
-        <th>Data de Pesagem</th>
-        <th>Ações</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let suino of suinos | filterSuinos:filtroBrincoPai">
-        <td>{{ suino.brincoAnimal }}</td>
-        <td>{{ suino.brincoPai }}</td>
-        <td>{{ suino.brincoMae }}</td>
-        <td>{{ suino.dataNascimento | date }}</td>
-        <td>{{ suino.dataSaida | date }}</td>
-        <td>{{ suino.status }}</td>
-        <td>{{ suino.sexo }}</td>
-        <td>
-          <ul>
-            <li *ngFor="let peso of suino.pesos">{{ peso.pesoKg }}</li>
-          </ul>
-        </td>
-        <td>
-          <ul>
-            <li *ngFor="let peso of suino.pesos">{{ peso.dataPesagem | date }}</li>
-          </ul>
-        </td>
-        <td>
-          <button class="btn btn-primary me-2" (click)="editarSuino(suino)">Editar</button>
-          <button class="btn btn-danger" (click)="deletarSuino(suino)">Deletar</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <div class="scrollable-table">
+        <p class="text-center d-block d-sm-none">Para uma melhor visualização, gire o dispositivo ou utilize um dispositivo com uma tela maior.</p>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Brinco do Animal</th>
+            <th>Brinco do Pai</th>
+            <th>Brinco da Mãe</th>
+            <th>Data de Nascimento</th>
+            <th>Data de Saída</th>
+            <th>Status</th>
+            <th>Sexo</th>
+            <th>Peso (Kg)</th>
+            <th>Data de Pesagem</th>
+            <th>Ações</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let suino of suinos | filterSuinos:filtroBrincoPai">
+            <td>{{ suino.brincoAnimal }}</td>
+            <td>{{ suino.brincoPai }}</td>
+            <td>{{ suino.brincoMae }}</td>
+            <td>{{ suino.dataNascimento | date }}</td>
+            <td>{{ suino.dataSaida | date }}</td>
+            <td>{{ suino.status }}</td>
+            <td>{{ suino.sexo }}</td>
+            <td>
+              <ul>
+                <li *ngFor="let peso of suino.pesos">{{ peso.pesoKg }}</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li *ngFor="let peso of suino.pesos">{{ peso.dataPesagem | date }}</li>
+              </ul>
+            </td>
+            <td>
+              <button class="btn bg-info me-2" (click)="editarSuino(suino)">Editar</button>
+              <button class="btn btn-danger" (click)="deletarSuino(suino)">Deletar</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
 
 
     <!-- Formulário de Edição -->
@@ -116,7 +122,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <button type="button" class="btn btn-primary" (click)="salvarEdicao()">Salvar</button>
+            <button type="button" class="btn bg-info" (click)="salvarEdicao()">Salvar</button>
             <span style="margin: 0 5px;"></span>
             <button type="button" class="btn btn-warning" (click)="voltarListaSuinos()">Voltar à lista de Suínos</button>
           </div>
@@ -151,7 +157,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <button type="submit" class="btn btn-primary">Salvar Peso</button>
+            <button type="submit" class="btn bg-info">Salvar Peso</button>
           </div>
         </div>
       </form>

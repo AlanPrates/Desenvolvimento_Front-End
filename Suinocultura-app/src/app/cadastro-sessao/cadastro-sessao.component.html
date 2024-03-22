@@ -41,7 +41,7 @@
       <label for="brincoAnimal" class="form-label">Digite o Brinco do Animal:</label>
       <input type="text" class="form-control" id="brincoAnimal" [(ngModel)]="brincoAnimal" name="brincoAnimal">
       <br>
-      <button type="button" class="btn btn-primary" (click)="adicionarAnimal()">Adicionar</button>
+      <button type="button" class="btn bg-info" (click)="adicionarAnimal()">Adicionar</button>
       <ul class="list-group mt-2">
         <li class="list-group-item" *ngFor="let animal of listaAnimais; let i = index">
           {{ animal }} <button type="button" class="btn btn-danger btn-sm" (click)="removerAnimal(i)">Remover</button>
@@ -53,7 +53,7 @@
       <label for="atividadePlanejada" class="form-label">Atividades Planejadas:</label>
       <input type="text" class="form-control" id="atividadePlanejada" [(ngModel)]="atividadePlanejada" name="atividadePlanejada">
       <br>
-      <button type="button" class="btn btn-primary" (click)="adicionarAtividade()">Adicionar</button>
+      <button type="button" class="btn bg-info" (click)="adicionarAtividade()">Adicionar</button>
       <ul class="list-group mt-2">
         <li class="list-group-item" *ngFor="let atividade of atividadesPlanejadas; let i = index">
           {{ atividade }} <button type="button" class="btn btn-danger btn-sm" (click)="removerAtividade(i)">Remover</button>
@@ -84,7 +84,8 @@
 
   <!-- Paginação -->
   <div class="pagination">
-    <button class="btn btn-primary" (click)="paginaAnterior()" [disabled]="paginaAtual === 1">Anterior</button>
-    <button class="btn btn-primary" (click)="proximaPagina()" [disabled]="paginaAtual === paginasTotais">Próxima</button>
+    <button class="btn bg-info" (click)="paginaAnterior()" [disabled]="paginaAtual === 1">Anterior</button>
+    <button class="btn bg-info" (click)="proximaPagina()" [disabled]="paginaAtual === paginasTotais">Próxima</button>
   </div>
+  <br>
 </div>
