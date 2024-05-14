@@ -21,8 +21,7 @@ import { CadastroAvesComponent } from './cadastro-aves/cadastro-aves.component';
 import {RouterModule} from "@angular/router";
 import { EditarAvesComponent } from './editar-aves/editar-aves.component'; // Importe EditarAvesComponent
 import { CadastroPesoComponent } from './cadastro-peso/cadastro-peso.component';
-import { ControlePesoComponent} from "./controle-peso/controle-peso.component";
-import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.component';
+
 
 @NgModule({
   declarations: [
@@ -37,9 +36,7 @@ import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.compo
     FilterAvesPipe, // Mude para FilterAvesPipe
     CadastroAvesComponent, // Mude para CadastroAvesComponent
     EditarAvesComponent, // Mude para EditarAvesComponent
-    CadastroPesoComponent,
-    ControlePesoComponent,
-    CadastroSessaoComponent
+    CadastroPesoComponent
   ],
   imports: [
     BrowserModule,
@@ -56,8 +53,7 @@ import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.compo
   exports: [
     ListaAvesComponent,
     FilterAvesPipe,
-    CadastroAvesComponent,
-    ControlePesoComponent
+    CadastroAvesComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

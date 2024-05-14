@@ -9,8 +9,7 @@ import { CadastroAvesComponent } from './cadastro-aves/cadastro-aves.component';
 import { ListaAvesComponent } from './lista-aves/lista-aves.component';
 import { EditarAvesComponent} from "./editar-aves/editar-aves.component";
 import { CadastroPesoComponent} from "./cadastro-peso/cadastro-peso.component";
-import {ControlePesoComponent} from "./controle-peso/controle-peso.component";
-import {CadastroSessaoComponent} from "./cadastro-sessao/cadastro-sessao.component";
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -23,8 +22,6 @@ const routes: Routes = [
   { path: 'listagem-aves', component: ListaAvesComponent },
   { path: 'editar-ave', component: EditarAvesComponent },
   { path: 'cadastro-peso', component: CadastroPesoComponent },
-  { path: 'controle-peso', component: ControlePesoComponent },
-  { path: 'cadastro-sessao', component: CadastroSessaoComponent },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
 

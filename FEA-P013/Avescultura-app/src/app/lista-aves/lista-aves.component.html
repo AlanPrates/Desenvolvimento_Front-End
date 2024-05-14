@@ -6,10 +6,9 @@
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
       <li><a routerLink="/dashboard" class="nav-link px-2 link-dark">Início</a></li>
-      <li><a routerLink="/cadastro-ave" class="nav-link px-2 link-dark">Cadastro de Aves</a></li>
-      <li><a routerLink="/cadastro-sessao" class="nav-link px-2 link-dark">Cadastro de Sessão</a></li>
+      <li><a routerLink="/cadastro-aves" class="nav-link px-2 link-dark">Cadastro de Aves</a></li>
       <li><a routerLink="/listagem-aves" class="nav-link px-2 link-dark">Listar Aves</a></li>
-      <li><a routerLink="/controle-peso" class="nav-link px-2 link-dark">Gráfico Animal</a></li>
+
     </ul>
 
     <div class="col-md-3 text-end">
@@ -41,10 +40,6 @@
             <th>Sexo</th>
             <th>Peso (Kg)</th>
             <th>Data de Pesagem</th>
-            <th>Vacinação Raiva</th>
-            <th>Vacinação Rinite Atrófica</th>
-            <th>Banho</th>
-            <th>Observação</th>
             <th>Ações</th>
           </tr>
           </thead>
@@ -100,14 +95,6 @@
               <label for="anilhaMaeEdit" class="form-label">Anilha da mãe:</label>
               <input type="number" class="form-control" id="anilhaMaeEdit" name="anilhaMaeEdit" [(ngModel)]="aveSelecionada.anilhaMae">
             </div>
-            <div class="mb-3">
-              <label for="vacinacaoRaivaEdit" class="form-label">Vacinação Raiva:</label>
-              <input type="date" class="form-control" id="vacinacaoRaivaEdit" name="vacinacaoRaivaEdit" [(ngModel)]="aveSelecionada.vacinacaoRaiva">
-            </div>
-            <div class="mb-3">
-              <label for="vacinacaoRiniteAtroficaEdit" class="form-label">Vacinação Rinite Atrófica:</label>
-              <input type="date" class="form-control" id="vacinacaoRiniteAtroficaEdit" name="vacinacaoRiniteAtroficaEdit" [(ngModel)]="aveSelecionada.vacinacaoRiniteAtrofica">
-            </div>
           </div>
           <div class="col-md-6">
             <div class="mb-3">
@@ -133,14 +120,6 @@
                 <option value="F">Fêmea</option>
               </select>
             </div>
-            <div class="mb-3">
-              <label for="banhoEdit" class="form-label">Banho:</label>
-              <input type="date" class="form-control" id="banhoEdit" name="banhoEdit" [(ngModel)]="aveSelecionada.banho">
-            </div>
-            <div class="mb-3">
-              <label for="observacaoEdit" class="form-label">Observação:</label>
-              <input type="text" class="form-control" id="observacaoEdit" name="observacaoEdit" [(ngModel)]="aveSelecionada.observacao">
-            </div>
           </div>
         </div>
         <div class="row">
@@ -152,66 +131,5 @@
         </div>
       </form>
     </div>
-
-    <!-- Formulário de Cadastro de Peso -->
-    <div *ngIf="!isEditFormVisible">
-      <h2>Cadastro de Peso</h2>
-      <form [formGroup]="pesoForm" (ngSubmit)="salvarPeso()">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="mb-3">
-              <label for="anilhaAnimalPeso" class="form-label">Anilha do Animal:</label>
-              <input type="number" class="form-control" id="anilhaAnimalPeso" formControlName="anilhaAnimal">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="mb-3">
-              <label for="dataPesagem" class="form-label">Data da Pesagem:</label>
-              <input type="date" class="form-control" id="dataPesagem" formControlName="dataPesagem">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="mb-3">
-              <label for="pesoKg" class="form-label">Peso em Kg:</label>
-              <input type="number" class="form-control" id="pesoKg" formControlName="pesoKg">
-            </div>
-          </div>
-        </div>
-        <!-- Campos individuais para cada tipo de atividade -->
-        <div class="row">
-          <div class="col-md-4">
-            <div class="mb-3">
-              <label for="vacinacaoRaiva" class="form-label">Vacinação Raiva:</label>
-              <input type="date" class="form-control" id="vacinacaoRaiva" formControlName="vacinacaoRaiva">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="mb-3">
-              <label for="vacinacaoRiniteAtrofica" class="form-label">Vacinação Rinite Atrófica:</label>
-              <input type="date" class="form-control" id="vacinacaoRiniteAtrofica" formControlName="vacinacaoRiniteAtrofica">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="mb-3">
-              <label for="banho" class="form-label">Banho:</label>
-              <input type="date" class="form-control" id="banho" formControlName="banho">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="observacao" class="form-label">Observação:</label>
-            <input type="text" class="form-control" id="observacao" formControlName="observacao">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <button type="submit" class="btn bg-info">Salvar Peso</button>
-          </div>
-        </div>
-      </form>
     </div>
   </div>
-</div>
