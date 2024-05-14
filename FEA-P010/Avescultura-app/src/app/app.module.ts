@@ -15,11 +15,11 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { environment } from 'src/environments/environment';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Importe FormsModule aqui
-import { ListaSuinosComponent } from './lista-suinos/lista-suinos.component';
-import { FilterSuinosPipe } from './lista-suinos/filter-suinos.pipe';
-import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
+import { ListaAvesComponent } from './lista-aves/lista-aves.component'; // Importe ListaAvesComponent
+import { FilterAvesPipe } from './lista-aves/filter-aves.pipe'; // Importe FilterAvesPipe
+import { CadastroAvesComponent } from './cadastro-aves/cadastro-aves.component'; // Importe CadastroAvesComponent
 import {RouterModule} from "@angular/router";
-import { EditarSuinoComponent } from './editar-suino/editar-suino.component';
+import { EditarAvesComponent } from './editar-aves/editar-aves.component'; // Importe EditarAvesComponent
 import { CadastroPesoComponent } from './cadastro-peso/cadastro-peso.component';
 import { ControlePesoComponent} from "./controle-peso/controle-peso.component";
 import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.component';
@@ -33,10 +33,10 @@ import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.compo
     VerificarCorreoComponent,
     RecuperarPasswordComponent,
     SpinnerComponent,
-    ListaSuinosComponent,
-    FilterSuinosPipe,
-    CadastroSuinoComponent,
-    EditarSuinoComponent,
+    ListaAvesComponent, // Mude para ListaAvesComponent
+    FilterAvesPipe, // Mude para FilterAvesPipe
+    CadastroAvesComponent, // Mude para CadastroAvesComponent
+    EditarAvesComponent, // Mude para EditarAvesComponent
     CadastroPesoComponent,
     ControlePesoComponent,
     CadastroSessaoComponent
@@ -52,12 +52,11 @@ import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.compo
     FormsModule, // Importe o FormsModule aqui
     CommonModule,
     ReactiveFormsModule
-
   ],
   exports: [
-    ListaSuinosComponent,
-    FilterSuinosPipe,
-    CadastroSuinoComponent,
+    ListaAvesComponent,
+    FilterAvesPipe,
+    CadastroAvesComponent,
     ControlePesoComponent
   ],
   providers: [],

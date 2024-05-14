@@ -1,13 +1,13 @@
-export interface Suino {
+export interface Aves {
   id: string;
-  brincoAnimal: number;
-  brincoPai: number;
-  brincoMae: number;
+  anilhaAnimal: number;
+  anilhaPai: number;
+  anilhaMae: number;
   dataNascimento: Date;
   dataSaida: Date;
   status: string;
   sexo: string;
-  pesos: Peso[]; // Lista de pesos associada ao suíno
+  pesos: Peso[]; // Lista de pesos associada à ave
   vacinacaoRaiva: Date; // Vacinação Raiva
   vacinacaoRiniteAtrofica: Date; // Vacinação Rinite Atrófica
   banho: Date; // Data do banho
@@ -17,4 +17,7 @@ export interface Suino {
 export interface Peso {
   dataPesagem: Date;
   pesoKg: number;
+}
+
+export class Aves {
 }
