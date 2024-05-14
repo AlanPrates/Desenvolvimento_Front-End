@@ -62,11 +62,6 @@
                 <li *ngFor="let peso of ave.pesos">{{ peso.dataPesagem | date }}</li>
               </ul>
             </td>
-            <!-- Adicionando as novas colunas -->
-            <td>{{ ave.vacinacaoRaiva | date }}</td>
-            <td>{{ ave.vacinacaoRiniteAtrofica | date }}</td>
-            <td>{{ ave.banho | date }}</td>
-            <td>{{ ave.observacao }}</td>
             <td>
               <button class="btn bg-info me-2" (click)="editarAve(ave)">Editar</button>
               <button class="btn btn-danger" (click)="deletarAve(ave)">Deletar</button>
