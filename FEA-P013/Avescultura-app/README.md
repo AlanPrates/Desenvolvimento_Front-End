@@ -1,4 +1,6 @@
-Gerenciamento de Suínos
+Gerenciamento de Aves Atilhas # https://aves-atilhas.vercel.app/cadastro-aves
+
+
 Desenvolvedores:
 
 
@@ -14,9 +16,8 @@ Descrição:
 Este projeto foi desenvolvido por Alan Prates dos Santos, Danilo Silveira da Gloria, Marcelo da Silva Cruz e Paulo Pereira Marques para gerenciamento de suínos. Ele permite o cadastro, edição, exclusão e monitoramento do peso dos animais ao longo do tempo.
 Funcionalidades Implementadas:
 
-    Cadastro detalhado de suínos.
-    Edição e exclusão de suínos.
-    Registro e monitoramento do peso dos animais.
+    Cadastro detalhado de aves.
+    Edição e exclusão de aves.
     Controle de acesso com autenticação de usuários.
 
 Tecnologias Utilizadas:
