@@ -4,6 +4,7 @@ Desenvolvedores:
 
     Alan Prates dos Santos
     Alessandro Conceição Santos
+    Daniel Monteiro Mota
     Danilo Silveira da Gloria
     Marcelo da Silva Cruz
     Paulo Pereira Marques
