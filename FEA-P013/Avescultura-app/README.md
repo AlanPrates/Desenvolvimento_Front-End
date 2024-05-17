@@ -6,7 +6,7 @@ Desenvolvedores:
 
     Alan Prates dos Santos
     Alessandro Conceição Santos
-    Danilo Silveira da Gloria
+    Daniel Monteiro Mota
     Marcelo da Silva Cruz
     Paulo Pereira Marques
     
