@@ -3,7 +3,7 @@ Gerenciamento de Aves Atilhas # https://aves-atilhas.vercel.app/cadastro-aves
 
 Desenvolvedores:
 
-
+    Alan Carlos dos Santos Pereira
     Alan Prates dos Santos
     Alessandro Conceição Santos
     Marcelo da Silva Cruz
